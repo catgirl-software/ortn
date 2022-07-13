@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
+    Rigidbody2D body;
     float speed;
     bool moving;
     Vector3 destination;
@@ -11,6 +12,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        body = GetComponent<Rigidbody2D>();
         speed = 2;
         moving = false;
     }
@@ -20,7 +22,16 @@ public class movement : MonoBehaviour
     {
         if (moving)
         {
-            transform.position += (destination - transform.position).normalized * speed * Time.deltaTime; 
+            var delta = destination - transform.position;
+            if (delta.magnitude < 0.1)
+            {
+                moving = false;
+                body.velocity = Vector2.zero;
+            }
+            else
+            {
+                body.velocity = delta.normalized * speed; 
+            }
         }
     }
 
