@@ -7,6 +7,7 @@ public class input : MonoBehaviour
 {
     bool holding;
     Vector2 cursorPosition;
+    Vector2 pointerLoc;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,11 @@ public class input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cursorPosition = Camera.main.ScreenToWorldPoint(pointerLoc);
+        if (holding)
+        {
+            UpdateMovement();
+        }
     }
 
     void UpdateMovement()
@@ -27,13 +32,7 @@ public class input : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx)
     {
-        var pointerLoc = ctx.ReadValue<Vector2>();
-        var worldLoc = Camera.main.ScreenToWorldPoint(pointerLoc);
-        cursorPosition = worldLoc;
-        if (holding)
-        {
-            UpdateMovement();
-        }
+        pointerLoc = ctx.ReadValue<Vector2>();
     }
 
     public void Click(InputAction.CallbackContext ctx)
