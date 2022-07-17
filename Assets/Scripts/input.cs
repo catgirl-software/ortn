@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class input : MonoBehaviour
+public class Input : MonoBehaviour
 {
     bool holding;
     Vector2 cursorPosition;
@@ -27,7 +27,7 @@ public class input : MonoBehaviour
 
     void UpdateMovement()
     {
-        GetComponent<movement>().MoveTo(cursorPosition);
+        GetComponent<Movement>().MoveTo(cursorPosition);
     }
 
     public void Move(InputAction.CallbackContext ctx)
