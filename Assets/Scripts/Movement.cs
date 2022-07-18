@@ -30,7 +30,8 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                body.velocity = delta.normalized * speed; 
+                body.velocity = delta.normalized * speed;
+                PointInDirection();
             }
         }
     }
@@ -39,5 +40,11 @@ public class Movement : MonoBehaviour
     {
         destination = new Vector3(dest.x, dest.y, 0);
         moving = true;
+    }
+
+    public void PointInDirection()
+    {
+        float angle = Mathf.Atan2(body.velocity.y, body.velocity.x)*Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
