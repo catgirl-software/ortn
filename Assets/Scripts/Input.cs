@@ -9,10 +9,13 @@ public class Input : MonoBehaviour
     Vector2 cursorPosition;
     Vector2 pointerLoc;
 
-    // Start is called before the first frame update
+    Movement movement;
+    ActionManager actions;
+
     void Start()
     {
-        
+        movement = GetComponent<Movement>();
+        actions = GetComponent<ActionManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +48,14 @@ public class Input : MonoBehaviour
         else if (ctx.phase == InputActionPhase.Canceled)
         {
             holding = false;
+        }
+    }
+
+    public void Action1(InputAction.CallbackContext ctx)
+    {
+        if (ctx.phase == InputActionPhase.Started)
+        {
+            actions.Action1Used(cursorPosition);
         }
     }
 }
