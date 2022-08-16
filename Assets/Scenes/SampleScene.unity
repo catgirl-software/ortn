@@ -251,8 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e98b272c419e5f44a7c8cc2d5b11a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Sprites/animationtest
-  layers: []
 --- !u!212 &1374910082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -593,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258e46ce7478bc24c88e02360fa2fa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Sprites/lilwizard
+  path: Sprites/lilsamurai
 --- !u!1 &2083328299
 GameObject:
   m_ObjectHideFlags: 0
